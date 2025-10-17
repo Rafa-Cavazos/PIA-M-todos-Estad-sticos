@@ -16,3 +16,5 @@ Explorar base de datos comunmente utilizadas en estadística con el fin de compr
 #### Actividad 3 Comparación de concentraciones de estroncio en cuerpos de agua
 
 Interacción con Análisis de Varianza (ANOVA), formular hipotesis de los problemas presentados, prueba de LSD, prueba de Tukey HSD y resolver las preguntas presentadas en esta actividad.
+
+<img width="1200" height="512" alt="Commits over time" src="https://github.com/user-attachments/assets/38baacd0-72e7-4791-9cf1-fcc8e12b9e37" />
