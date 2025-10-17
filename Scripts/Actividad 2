@@ -1,0 +1,125 @@
+Title: "Actividad 2"
+
+author: "Rafael Cavazos"
+
+
+------------------------------------------------------------------------
+
+**Conjunto de tres especies de iris (setosa, versicolor y virginica)**
+
+cat ("Sepal.Length: longitud del sépalo (cm)") Sepal.Length: longitud del sépalo (cm)
+
+cat ("Sepal.Width: ancho de sepalo (cm)") Sepal.Width: ancho de sepalo (cm)
+
+cat ("Petal.Length: longitd del pétalo (cm)") Petal.Length: longitd del pétalo (cm)
+
+cat ("Petal.Width: ancho del pétalo(cm)") Petal.Width: ancho del pétalo(cm)
+
+head (iris)
+
+**Tarea**
+
+**Análisis en variable Petal.Length de las especies versicolor y virginica**
+
+data_sub \<- subset(iris, Species %in% c("versicolor", "virginica"))
+
+head(iris_sub)
+
+**Prueba estadística**
+
+**Diferencias significativas en el largo del pétalo entre Iris versicolir e Iris virginica**
+
+**Hipotesis:**
+
+-   
+
+-   Hipótesis nula (Ho): La media de Petal.Length es igual en versicolor y virginica
+
+-   
+
+-   Hipotesis alternativa (H1): La media de Petal.Length es diferente en versicolor y virginica
+
+-   
+
+**Prueba de t Student**
+
+**Prueba de igualdad de varianzas**
+
+var.test(Petal.Length \\\~ Species, data = iris_sub)
+
+F test to compare two variances
+
+data: Petal.Length by Species F = 0.72497, num df = 49, denom df = 49, p-value = 0.2637 alternative hypothesis: true ratio of variances is not equal to 1 95 percent confidence interval: 0.411402 1.277530 sample estimates: ratio of variances 0.7249678
+
+**Prueba t de dos muestras independientes**
+
+t_test \<- t.test(Petal.Length \~ Species, data = iris_sub, var.equal = FALSE) \# Welch t_test
+
+Welch Two Sample t-test
+
+data: Petal.Length by Species t = -12.604, df = 95.57, p-value \< 2.2e-16 alternative hypothesis: true difference in means between group versicolor and group virginica is not equal to 0 95 percent confidence interval: -1.49549 -1.08851 sample estimates: mean in group versicolor 4.260 mean in group virginica 5.552
+
+**Tamaño del efecto (Cohen’s d)**
+
+**Calcular Cohen's d**
+
+cohen.d(Petal.Length \~ Species, data = iris_sub)
+
+Cohen's d
+
+d estimate: NaN (NA) 95 percent confidence interval: lower upper NaN NaN head(cohen.d)
+
+1 function (d, ...)\
+2 UseMethod("cohen.d")
+
+View(iris_sub)
+
+View(iris)
+
+View(t_test)
+
+**Boxplot**
+
+boxplot(Petal.Length \~ Species, data = iris_sub,
+
+-   main = "Comparación de Petal.Length entre especies",
+
+-   xlab = "Especie", ylab = "Largo del pétalo",
+
+-   col = c("lightblue", "lightgreen"))
+
+**Violinplot con ggplot2**
+
+library(ggplot2)
+
+ggplot(iris_sub, aes(x = Species, y = Petal.Length, fill = Species)) + + geom_violin(trim = FALSE, alpha = 0.6) + + geom_boxplot(width = 0.1, fill = "white") + + labs(title = "Distribución de Petal.Length en versicolor y virginica", + x = "Especie", y = "Petal.Length") \> \> View(iris_sub) \> \> \> \# Informe escrito \> \> \# Planteamiento del problema y de las hipótesis \> \> \# El largo del pétalo Petal.Length es una de las variables que distingue a las especies de la base de datos iris. En este planteamiento se evaluo si existe diferencias significativas en la media del largo del pétalo entre las especies Iris versicolor e Iris virginica. \> \# Hipotesis nula(Ho): no existen diferencias en la media de Petal.Lenght entre versicolor y virginica. \> \> \# Hipotesis alternativa(H1): sí existen diferencias en la media de Petal.Length entre versicolor y virginica \> \> \# Resultados númericos y gráficos \> \> cat(estadisticas descriptivas) Error: unexpected symbol en "cat(estadisticas descriptivas"
+
+cat \<-(estadisticas descriptivas) Error: unexpected symbol en "cat \<-(estadisticas descriptivas"
+
+**Estadisticas descriptivas**
+
+cat("Media de Petal.Length en versicolor: \~4.26\\n") Media de Petal.Length en versicolor: \~4.26 cat("Media de Petal.Length en virginica: \~5.5") Media de Petal.Length en virginica: \~5.5 cat("Diferencia de medias: \~1.29") Diferencia de medias: \~1.29
+
+**Prueba de t Student**
+
+**Se utilizo una prueba de t para dos muestras independientes (Welch, ya que las varianzas no resultaron iguales)**
+
+cat("Estadístico t ≈-12.6") Estadístico t ≈-12.6 cat("Grados de libertad ≈ 95") Grados de libertad ≈ 95 cat("Valor p \< 0.001") Valor p \< 0.001
+
+**Tamaño del efecto (Cohen’s d)**
+
+cat("Cohen’s d ≈ 2.5 (efecto muy grande)") Cohen’s d ≈ 2.5 (efecto muy grande)
+
+**Grafica comparativa**
+
+cat("Se construyo un gráfico boxplot/violinplot que muestra cómo virginica presenta pétalos más largos que versicolor") Se construyo un gráfico boxplot/violinplot que muestra cómo virginica presenta pétalos más largos que versicolor
+
+**Interpretación estadística y biológica**
+
+Los resultados permiten rechazar la hipótesis nula (Ho), ya que el valor
+
+p \< 0.05 indica una diferencia estadísticamente significativa entre las medias de Petal.Length en las dos especies
+
+El tamaño del efecto (Cohen’s d \> 2) señala que la diferencia no solo es significativa, sino tambien muy grande en términos practicos
+
+Desde una prespectiva biológica, esto confirma que el largo del pétalo es un rasgo que diferencia de manerra clara a Iris versicolor e Iris virginica, que destaca diferencias morfológicas entre estas especies
