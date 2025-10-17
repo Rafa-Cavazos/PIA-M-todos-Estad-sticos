@@ -1,0 +1,154 @@
+title: "Laboratorio 1"
+---
+
+> # Gastos totales
+> 300 + 240 + 1527 + 400 + 1500 + 1833
+[1] 5800
+> # Gastos totales
+> celular <- 300
+> transporte <- 240
+> comestibles <- 1527
+> gimnasio <- 400
+> alquiler <- 1500
+> otros <- 1833
+> 
+> # Gastos totales
+> gastos_total <- celular + transporte + comestibles + gimnasio + alquiler + otros
+> 
+> gastos_total
+[1] 5800
+> # Gastos total semestre
+> gasto_total_semestre <- gastos_total * 5
+> 
+> 
+> # Gastos total año
+> gastos_total_año <- gastos_total * 10
+> 
+> gasto_total_semestre
+[1] 29000
+> gastos_total_año
+[1] 58000
+> 
+> # Gastos
+> gastos <- c(celular, transporte, comestibles, gimnasio, alquiler, otros)
+> 
+> 
+> 
+> gastos
+[1]  300  240 1527  400 1500 1833
+> # Gráfico de barras 
+> barplot(gastos)
+> 
+> # Datos ordenados decrecientes
+> gastos_ordenados <- sort(gastos, decreasing = TRUE)
+> 
+> 
+> # Gráfico de barras con datos ordenados decrecientes
+> barplot(gastos_ordenados)
+>
+> # Problema 1
+> 
+> Variable                     Tipo
+Error: unexpected symbol en "Variable                     Tipo"
+
+> # Variable                   Tipo
+> # Nombre de estudiante       Cualitativa
+> # Fecha de nacimiento        Cuantitativa
+> # Edad (en años)             Cuantitativa
+> # Direccion de casa          Cualitativa
+> # Número de teléfono         Cualitativa
+> # Area principal de estudio  Cualitativa
+> # Grado de año universitario Cualitativa
+> # Puntuaje en la prueba de mitad de periodo Cuantitativa
+> # Calificacion general       Cualitativa
+> # Tiempo para completar la prueba final  Cuantitativa
+> # Numero de hermanos        Cuantitativa
+> 
+> 
+> # Problema 2
+> 
+> Variables_cuantitativas <- c("edad", "estatura", "peso", "promedio academico", "numero de materias", "ingresos mesuales", "horas de estudio por semana")
+> Variables_cualitativas <- c("genero", "carrera que estudia", "semestre actual", "estado civil", "tipo de transporte que usa", "nivel socioeconomico", "estado de origen")
+> 
+> 
+> # Problema 3
+> 
+> # Evaluación de cafetería 
+> set.seed(123)  
+> n_estudiantes <- 100
+> 
+> 
+> evaluaciones_cafeteria <- sample(1:5, n_estudiantes, 
++                                  replace = TRUE, 
++                                  prob = c(0.1, 0.2, 0.3, 0.3, 0.1))
+> 
+> 
+> head(evaluaciones_cafeteria, 20)
+ [1] 4 2 3 5 1 4 3 5 3 3 1 3 2 3 4 5 4 4 3 1
+> 
+> # Escala utilizada
+> 
+> # 1 = Muy malo
+> # 2 = Malo
+> # 3 = Regular
+> # 4 = Bueno
+> # 5 = Muy bueno
+> 
+> # Tipo de variable: cuantitativa
+> 
+> # Explique: los valores numericos tienen orden logico, la diferencia entre valores tiene sginificado, se pueden calcular promedios
+> 
+> 
+> # Problema 4
+> 
+> # 1. ¿Cuál es la cantidad promedio de horas que los estudiantes de universidades públicas trabajan cada semana?
+> 
+> # Individuos de interes: Estudiantes de universidades publicas
+> # Variable: horas de trabajo a la semana
+> # Tipo: cuantitativa
+> 
+> # 2 ¿Qué proporción de todos los estudiants universitarios de México estan inscritos en una iniversidad pública?
+> 
+> # Individuos de interes: Todos los estudiantes de México
+> # Variable: Tipo de universidad
+> # Tipo: Categorica
+> \newpage
+> # 3. En las universidades públicas, ¿las estudiantes femeninas tienen un promedio de CENEVAL más alto que los estuidantes varones?
+> 
+> # Individuos de interes: Estudiantes de universidades públicas
+> # Variable: promedio de CENEVAL
+> # Tipo: cuantitativa
+> 
+> # 4 ¿Es más problable que los atletas universitarios reciban asesoramiento académico que los atletas no universitarios?
+> 
+> # Individuos de inetes: Atletas universitarios y no universitarios
+> # Variable: Recibir asesoriamiento academico
+> # Tipo: Categorico
+> 
+> # 5 Si reuniéramos datos para responder a las prefuntas de la investigación anterior, ¿qué datos podrian analizarse mediante un histograma?¿Cómo lo sabes?
+> 
+> # Respuesta: Los datos que son de tipo cuantitativos, porque los histogramas son apropiados para las variables cuantitativas porque muestran la distribucion de frecuencias de los valores numericos.
+
+## Gráfica de Gastos
+
+```{r grafica-gastos, fig.width=8, fig.height=6, fig.align='center'}
+# Recreando los datos
+celular <- 300
+transporte <- 240
+comestibles <- 1527
+gimnasio <- 400
+alquiler <- 1500
+otros <- 1833
+
+# Creando vector de gastos
+gastos <- c(celular, transporte, comestibles, gimnasio, alquiler, otros)
+nombres <- c("Celular", "Transporte", "Comestibles", "Gimnasio", "Alquiler", "Otros")
+
+# Gráfica ordenada
+barplot(sort(gastos, decreasing = TRUE),
+        main = "Gastos Mensuales Ordenados de Mayor a Menor",
+        ylab = "Cantidad ($)",
+        col = c("gray", "blue", "yellow", "coral", "pink", "purple"),
+        names.arg = nombres[order(gastos, decreasing = TRUE)])
+
+
