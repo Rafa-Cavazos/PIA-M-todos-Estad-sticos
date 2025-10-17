@@ -5,6 +5,8 @@
 ### Alumno: Rafael Cavazos Jimenez
 ### Matricula: 1582095
 
+#### Enlace de repositorio: https://github.com/Rafa-Cavazos/PIA-M-todos-Estad-sticos.git
+
 #### Laboratorio 1: Empezar con R y RStudio
 
 Primer contacto con la consola R, donde se comenzo a utilizar R como calculadora cientifica, comprender el diseño del panel de RStudio, distinguir entre variables categóricas y cuantitativas y conocer la sintaxis markdown.
